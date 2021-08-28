@@ -10,7 +10,7 @@
 
 //ALIGN_32BYTES(__attribute__((section (".RAM_D1"))) int16_t g_sAd7606Buf[AD7606_BUFSIZE]);
 
-int16_t g_sAd7606Buf[AD7606_BUFSIZE];
+__align(16) int16_t g_sAd7606Buf[AD7606_BUFSIZE];
 
 /* DMA传输完成回调函数 */
 void AD7606_DmaCplCb(DMA_HandleTypeDef *hdma)
@@ -20,7 +20,13 @@ void AD7606_DmaCplCb(DMA_HandleTypeDef *hdma)
 	rt_sem_release(&storage_sem);	//发送信号量，完成
 	
 //	for(i=0;i<2048;i++)
+//	i=0;
 //		log_info("%d:0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x\r\n",i,g_sAd7606Buf[i*8+0],g_sAd7606Buf[i*8+1],g_sAd7606Buf[i*8+2],g_sAd7606Buf[i*8+3],g_sAd7606Buf[i*8+4],g_sAd7606Buf[i*8+5],g_sAd7606Buf[i*8+6],g_sAd7606Buf[i*8+7]);
+//	i=3852;
+//		log_info("%d:0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x\r\n",i,g_sAd7606Buf[i*8+0],g_sAd7606Buf[i*8+1],g_sAd7606Buf[i*8+2],g_sAd7606Buf[i*8+3],g_sAd7606Buf[i*8+4],g_sAd7606Buf[i*8+5],g_sAd7606Buf[i*8+6],g_sAd7606Buf[i*8+7]);
+//	i=7948;
+//		log_info("%d:0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x,0x%x\r\n",i,g_sAd7606Buf[i*8+0],g_sAd7606Buf[i*8+1],g_sAd7606Buf[i*8+2],g_sAd7606Buf[i*8+3],g_sAd7606Buf[i*8+4],g_sAd7606Buf[i*8+5],g_sAd7606Buf[i*8+6],g_sAd7606Buf[i*8+7]);
+	//log_info("%d,%d\r\n",g_sAd7606Buf[7],g_sAd7606Buf[3582*8+7]);
 	LED2_TOGGLE();
 	
 	

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [HDAS_V1.0.0_Embedded\HDAS_V1.0.0_Embedded]</title></head>
 <body><HR>
 <H1>Static Call Graph for image HDAS_V1.0.0_Embedded\HDAS_V1.0.0_Embedded</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu May 27 22:48:48 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Aug 28 23:27:26 2021
 <BR><P>
 <H3>Maximum Stack Usage =       1712 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1035,8 +1035,8 @@ Global Symbols
 <P><STRONG><a name="[e5]"></a>BSP_SD_Init</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, bsp_driver_sd.o(i.BSP_SD_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = BSP_SD_Init &rArr; HAL_SD_Init &rArr; HAL_SD_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_Init
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_Init
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_IsDetected
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_initialize
@@ -1286,9 +1286,6 @@ Global Symbols
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PWREx_ConfigSupply
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendSDStatus
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
@@ -1296,6 +1293,9 @@ Global Symbols
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL3_Config
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL2_Config
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendSDStatus
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CheckIdleState
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_write
@@ -1419,9 +1419,9 @@ Global Symbols
 <P><STRONG><a name="[11f]"></a>HAL_RCCEx_PeriphCLKConfig</STRONG> (Thumb, 2256 bytes, Stack size 40 bytes, stm32h7xx_hal_rcc_ex.o(i.HAL_RCCEx_PeriphCLKConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL3_Config
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL3_Config
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCCEx_PLL2_Config
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 </UL>
@@ -1430,8 +1430,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
@@ -1468,8 +1468,7 @@ Global Symbols
 <P><STRONG><a name="[10e]"></a>HAL_RCC_GetSysClockFreq</STRONG> (Thumb, 270 bytes, Stack size 12 bytes, stm32h7xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
+<BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Get_CPU_RCC_Clock
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -1478,8 +1477,8 @@ Global Symbols
 <P><STRONG><a name="[123]"></a>HAL_RCC_OscConfig</STRONG> (Thumb, 1270 bytes, Stack size 40 bytes, stm32h7xx_hal_rcc.o(i.HAL_RCC_OscConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_RCC_OscConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetREVID
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetREVID
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
@@ -1503,13 +1502,13 @@ Global Symbols
 <P><STRONG><a name="[e8]"></a>HAL_SD_ConfigWideBusOperation</STRONG> (Thumb, 380 bytes, Stack size 48 bytes, stm32h7xx_hal_sd.o(i.HAL_SD_ConfigWideBusOperation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = HAL_SD_ConfigWideBusOperation &rArr; SD_FindSCR &rArr; SDMMC_CmdSendSCR &rArr; SDMMC_GetCmdResp1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
+<BR>[Calls]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_Init
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetResponse
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBusWidth
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBlockLength
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_Init
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_Init
@@ -1578,12 +1577,12 @@ Global Symbols
 <P><STRONG><a name="[e7]"></a>HAL_SD_Init</STRONG> (Thumb, 162 bytes, Stack size 40 bytes, stm32h7xx_hal_sd.o(i.HAL_SD_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = HAL_SD_Init &rArr; HAL_SD_MspInit &rArr; HAL_RCCEx_PeriphCLKConfig &rArr; RCCEx_PLL3_Config
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_InitCard
+<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_InitCard
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardStatus
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardState
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDMMC2_SD_Init
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_SD_Init
@@ -1592,13 +1591,13 @@ Global Symbols
 <P><STRONG><a name="[13a]"></a>HAL_SD_InitCard</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, stm32h7xx_hal_sd.o(i.HAL_SD_InitCard))
 <BR><BR>[Stack]<UL><LI>Max Depth = 140<LI>Call Chain = HAL_SD_InitCard &rArr; SD_InitCard &rArr; SDMMC_CmdSetRelAdd &rArr; SDMMC_GetCmdResp6
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
+<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_PowerON
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_InitCard
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_PowerState_ON
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_Init
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBlockLength
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_GetPeriphCLKFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_Init
 </UL>
@@ -1989,17 +1988,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;$Super$$main
 </UL>
 
-<P><STRONG><a name="[185]"></a>MX_TIM2_Init</STRONG> (Thumb, 194 bytes, Stack size 88 bytes, tim.o(i.MX_TIM2_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = MX_TIM2_Init &rArr; HAL_TIM_Base_Init &rArr; HAL_TIM_Base_MspInit &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
+<P><STRONG><a name="[185]"></a>MX_TIM2_Init</STRONG> (Thumb, 178 bytes, Stack size 80 bytes, tim.o(i.MX_TIM2_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = MX_TIM2_Init &rArr; HAL_TIM_Base_Init &rArr; HAL_TIM_Base_MspInit &rArr; HAL_DMA_Start_IT &rArr; DMA_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_SlaveConfigSynchro
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 <LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
 <LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start_sampling
@@ -2213,10 +2212,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[140]"></a>SDMMC_ConfigData</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, stm32h7xx_ll_sdmmc.o(i.SDMMC_ConfigData))
-<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendSDStatus
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_WriteBlocks_DMA
+<BR><BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_WriteBlocks_DMA
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ReadBlocks_DMA
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendSDStatus
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
 </UL>
 
 <P><STRONG><a name="[18a]"></a>SDMMC_GetCmdResp1</STRONG> (Thumb, 280 bytes, Stack size 12 bytes, stm32h7xx_ll_sdmmc.o(i.SDMMC_GetCmdResp1))
@@ -2286,9 +2285,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[12f]"></a>SDMMC_ReadFIFO</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32h7xx_ll_sdmmc.o(i.SDMMC_ReadFIFO))
-<BR><BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendSDStatus
+<BR><BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_IRQHandler
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_SendSDStatus
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SD_FindSCR
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_IRQHandler
 </UL>
 
 <P><STRONG><a name="[189]"></a>SDMMC_SendCommand</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32h7xx_ll_sdmmc.o(i.SDMMC_SendCommand))
@@ -2512,6 +2511,7 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start_sampling
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key2_thread_entry
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;key1_thread_entry
+<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
 <LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SDMMC2_SD_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CardInfo
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Get_CPU_RCC_Clock
@@ -3999,12 +3999,12 @@ Local Symbols
 <P><STRONG><a name="[126]"></a>SD_FindSCR</STRONG> (Thumb, 214 bytes, Stack size 64 bytes, stm32h7xx_hal_sd.o(i.SD_FindSCR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SD_FindSCR &rArr; SDMMC_CmdSendSCR &rArr; SDMMC_GetCmdResp1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_ReadFIFO
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_ReadFIFO
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_ConfigData
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSendSCR
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBlockLength
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_ConfigWideBusOperation
 </UL>
@@ -4012,13 +4012,13 @@ Local Symbols
 <P><STRONG><a name="[13d]"></a>SD_InitCard</STRONG> (Thumb, 210 bytes, Stack size 56 bytes, stm32h7xx_hal_sd.o(i.SD_InitCard))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = SD_InitCard &rArr; SDMMC_CmdSetRelAdd &rArr; SDMMC_GetCmdResp6
 </UL>
-<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetResponse
+<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardCSD
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetResponse
 <LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetPowerState
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSetRelAdd
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSendCSD
 <LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSendCID
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdSelDesel
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardCSD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_InitCard
 </UL>
@@ -4026,14 +4026,14 @@ Local Symbols
 <P><STRONG><a name="[13c]"></a>SD_PowerON</STRONG> (Thumb, 322 bytes, Stack size 40 bytes, stm32h7xx_hal_sd.o(i.SD_PowerON))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = SD_PowerON &rArr; SDMMC_CmdVoltageSwitch &rArr; SDMMC_GetCmdResp1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_DriveTransceiver_1_8V_Callback
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[19c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_DriveTransceiver_1_8V_Callback
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetResponse
 <LI><a href="#[198]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdVoltageSwitch
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdOperCond
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdGoIdleState
 <LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppOperCommand
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_InitCard
 </UL>
@@ -4041,13 +4041,13 @@ Local Symbols
 <P><STRONG><a name="[12d]"></a>SD_SendSDStatus</STRONG> (Thumb, 226 bytes, Stack size 48 bytes, stm32h7xx_hal_sd.o(i.SD_SendSDStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = SD_SendSDStatus &rArr; SDMMC_CmdStatusRegister &rArr; SDMMC_GetCmdResp1
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_ReadFIFO
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_ReadFIFO
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_GetResponse
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_ConfigData
 <LI><a href="#[197]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdStatusRegister
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdBlockLength
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SDMMC_CmdAppCommand
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SD_GetCardStatus
 </UL>

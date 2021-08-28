@@ -84,7 +84,7 @@ int main(void)
 	clc_watchdog();
 	
 	MX_DMA_Init();
-  MX_TIM2_Init(AD7606_SAMPLE_RATE,50);
+  MX_TIM2_Init(AD7606_SAMPLE_RATE,10);
   MX_FMC_Init();
 	clc_watchdog();
 	

@@ -327,7 +327,7 @@ Section Cross References
     tim.o(i.HAL_TIM_MspPostInit) refers to stm32h7xx_hal_gpio.o(i.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
     tim.o(i.HAL_TIM_MspPostInit) refers to stm32h7xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
     tim.o(i.MX_TIM2_Init) refers to memseta.o(.text) for __aeabi_memclr4
-    tim.o(i.MX_TIM2_Init) refers to stm32h7xx_hal_rcc.o(i.HAL_RCC_GetSysClockFreq) for HAL_RCC_GetSysClockFreq
+    tim.o(i.MX_TIM2_Init) refers to printfa.o(i.__0printf) for __2printf
     tim.o(i.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(i.HAL_TIM_Base_Init) for HAL_TIM_Base_Init
     tim.o(i.MX_TIM2_Init) refers to main.o(i.Error_Handler) for Error_Handler
     tim.o(i.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(i.HAL_TIM_PWM_Init) for HAL_TIM_PWM_Init
@@ -335,6 +335,7 @@ Section Cross References
     tim.o(i.MX_TIM2_Init) refers to stm32h7xx_hal_tim_ex.o(i.HAL_TIMEx_MasterConfigSynchronization) for HAL_TIMEx_MasterConfigSynchronization
     tim.o(i.MX_TIM2_Init) refers to stm32h7xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel) for HAL_TIM_PWM_ConfigChannel
     tim.o(i.MX_TIM2_Init) refers to tim.o(i.HAL_TIM_MspPostInit) for HAL_TIM_MspPostInit
+    tim.o(i.MX_TIM2_Init) refers to system_stm32h7xx.o(.data) for SystemCoreClock
     tim.o(i.MX_TIM2_Init) refers to tim.o(.bss) for .bss
     tim.o(i.Tim2_pwm_disable) refers to stm32h7xx_hal_tim.o(i.HAL_TIM_PWM_Stop) for HAL_TIM_PWM_Stop
     tim.o(i.Tim2_pwm_disable) refers to main.o(i.Error_Handler) for Error_Handler
@@ -4809,25 +4810,25 @@ Image Symbol Table
     .bss                                     0x2402bd58   Section      128  sdmmc.o(.bss)
     .bss                                     0x2402bdd8   Section      280  usart.o(.bss)
     .bss                                     0x2402bef0   Section       76  fmc.o(.bss)
-    .bss                                     0x2402bf3c   Section    65536  fmc_tim_ad7606.o(.bss)
-    .bss                                     0x2403bf3c   Section      196  tim.o(.bss)
-    .bss                                     0x2403c000   Section       32  ff.o(.bss)
-    Files                                    0x2403c000   Data          32  ff.o(.bss)
-    .bss                                     0x2403c020   Section       12  ff_gen_drv.o(.bss)
-    .bss                                     0x2403c02c   Section     4096  board.o(.bss)
-    rt_heap                                  0x2403c02c   Data        4096  board.o(.bss)
-    .bss                                     0x2403d02c   Section      257  shell.o(.bss)
-    finsh_prompt                             0x2403d02c   Data         257  shell.o(.bss)
-    .bss                                     0x2403d130   Section      408  idle.o(.bss)
-    idle                                     0x2403d130   Data         136  idle.o(.bss)
-    rt_thread_stack                          0x2403d1b8   Data         256  idle.o(.bss)
-    idle_hook_list                           0x2403d2b8   Data          16  idle.o(.bss)
-    .bss                                     0x2403d2c8   Section      256  kservice.o(.bss)
-    rt_log_buf                               0x2403d2c8   Data         256  kservice.o(.bss)
-    .bss                                     0x2403d3c8   Section       40  mem.o(.bss)
-    heap_sem                                 0x2403d3c8   Data          40  mem.o(.bss)
-    .bss                                     0x2403d3f0   Section      256  scheduler.o(.bss)
-    STACK                                    0x2403d4f0   Section     4096  startup_stm32h743xx.o(STACK)
+    .bss                                     0x2402bf40   Section    65536  fmc_tim_ad7606.o(.bss)
+    .bss                                     0x2403bf40   Section      196  tim.o(.bss)
+    .bss                                     0x2403c004   Section       32  ff.o(.bss)
+    Files                                    0x2403c004   Data          32  ff.o(.bss)
+    .bss                                     0x2403c024   Section       12  ff_gen_drv.o(.bss)
+    .bss                                     0x2403c030   Section     4096  board.o(.bss)
+    rt_heap                                  0x2403c030   Data        4096  board.o(.bss)
+    .bss                                     0x2403d030   Section      257  shell.o(.bss)
+    finsh_prompt                             0x2403d030   Data         257  shell.o(.bss)
+    .bss                                     0x2403d134   Section      408  idle.o(.bss)
+    idle                                     0x2403d134   Data         136  idle.o(.bss)
+    rt_thread_stack                          0x2403d1bc   Data         256  idle.o(.bss)
+    idle_hook_list                           0x2403d2bc   Data          16  idle.o(.bss)
+    .bss                                     0x2403d2cc   Section      256  kservice.o(.bss)
+    rt_log_buf                               0x2403d2cc   Data         256  kservice.o(.bss)
+    .bss                                     0x2403d3cc   Section       40  mem.o(.bss)
+    heap_sem                                 0x2403d3cc   Data          40  mem.o(.bss)
+    .bss                                     0x2403d3f4   Section      256  scheduler.o(.bss)
+    STACK                                    0x2403d4f8   Section     4096  startup_stm32h743xx.o(STACK)
 
     Global Symbols
 
@@ -5203,7 +5204,7 @@ Image Symbol Table
     MX_FMC_Init                              0x08006419   Thumb Code   100  fmc.o(i.MX_FMC_Init)
     MX_GPIO_Init                             0x08006489   Thumb Code   622  gpio.o(i.MX_GPIO_Init)
     MX_SDMMC2_SD_Init                        0x0800671d   Thumb Code    70  sdmmc.o(i.MX_SDMMC2_SD_Init)
-    MX_TIM2_Init                             0x08006799   Thumb Code   194  tim.o(i.MX_TIM2_Init)
+    MX_TIM2_Init                             0x08006799   Thumb Code   178  tim.o(i.MX_TIM2_Init)
     MX_UART8_Init                            0x08006865   Thumb Code   112  usart.o(i.MX_UART8_Init)
     NMI_Handler                              0x080068e5   Thumb Code     2  stm32h7xx_it.o(i.NMI_Handler)
     SDMMC2_IRQHandler                        0x08006b11   Thumb Code     6  stm32h7xx_it.o(i.SDMMC2_IRQHandler)
@@ -5514,12 +5515,12 @@ Image Symbol Table
     uart8_rbuf                               0x2402bdd8   Data         136  usart.o(.bss)
     huart8                                   0x2402be60   Data         144  usart.o(.bss)
     hsram1                                   0x2402bef0   Data          76  fmc.o(.bss)
-    g_sAd7606Buf                             0x2402bf3c   Data       65536  fmc_tim_ad7606.o(.bss)
-    htim2                                    0x2403bf3c   Data          76  tim.o(.bss)
-    hdma_tim2_up                             0x2403bf88   Data         120  tim.o(.bss)
-    disk                                     0x2403c020   Data          12  ff_gen_drv.o(.bss)
-    rt_thread_priority_table                 0x2403d3f0   Data         256  scheduler.o(.bss)
-    __initial_sp                             0x2403e4f0   Data           0  startup_stm32h743xx.o(STACK)
+    g_sAd7606Buf                             0x2402bf40   Data       65536  fmc_tim_ad7606.o(.bss)
+    htim2                                    0x2403bf40   Data          76  tim.o(.bss)
+    hdma_tim2_up                             0x2403bf8c   Data         120  tim.o(.bss)
+    disk                                     0x2403c024   Data          12  ff_gen_drv.o(.bss)
+    rt_thread_priority_table                 0x2403d3f4   Data         256  scheduler.o(.bss)
+    __initial_sp                             0x2403e4f8   Data           0  startup_stm32h743xx.o(STACK)
 
 
 
@@ -6139,7 +6140,7 @@ Memory Map of the image
     **** No section assigned to this execution region ****
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x24000000, Load base: 0x0803ba38, Size: 0x0003e4f0, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00000564])
+    Execution Region RW_IRAM2 (Exec base: 0x24000000, Load base: 0x0803ba38, Size: 0x0003e4f8, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x00000564])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -6182,18 +6183,20 @@ Memory Map of the image
     0x2402bd58        -       0x00000080   Zero   RW          592    .bss                sdmmc.o
     0x2402bdd8        -       0x00000118   Zero   RW          645    .bss                usart.o
     0x2402bef0        -       0x0000004c   Zero   RW          946    .bss                fmc.o
-    0x2402bf3c        -       0x00010000   Zero   RW          998    .bss                fmc_tim_ad7606.o
-    0x2403bf3c        -       0x000000c4   Zero   RW         1064    .bss                tim.o
-    0x2403c000        -       0x00000020   Zero   RW         6821    .bss                ff.o
-    0x2403c020        -       0x0000000c   Zero   RW         7181    .bss                ff_gen_drv.o
-    0x2403c02c        -       0x00001000   Zero   RW         7287    .bss                board.o
-    0x2403d02c        -       0x00000101   Zero   RW         7543    .bss                shell.o
-    0x2403d12d   COMPRESSED   0x00000003   PAD
-    0x2403d130        -       0x00000198   Zero   RW         7806    .bss                idle.o
-    0x2403d2c8        -       0x00000100   Zero   RW         8105    .bss                kservice.o
-    0x2403d3c8        -       0x00000028   Zero   RW         8274    .bss                mem.o
-    0x2403d3f0        -       0x00000100   Zero   RW         8455    .bss                scheduler.o
-    0x2403d4f0        -       0x00001000   Zero   RW            1    STACK               startup_stm32h743xx.o
+    0x2402bf3c   COMPRESSED   0x00000004   PAD
+    0x2402bf40        -       0x00010000   Zero   RW          998    .bss                fmc_tim_ad7606.o
+    0x2403bf40        -       0x000000c4   Zero   RW         1064    .bss                tim.o
+    0x2403c004        -       0x00000020   Zero   RW         6821    .bss                ff.o
+    0x2403c024        -       0x0000000c   Zero   RW         7181    .bss                ff_gen_drv.o
+    0x2403c030        -       0x00001000   Zero   RW         7287    .bss                board.o
+    0x2403d030        -       0x00000101   Zero   RW         7543    .bss                shell.o
+    0x2403d131   COMPRESSED   0x00000003   PAD
+    0x2403d134        -       0x00000198   Zero   RW         7806    .bss                idle.o
+    0x2403d2cc        -       0x00000100   Zero   RW         8105    .bss                kservice.o
+    0x2403d3cc        -       0x00000028   Zero   RW         8274    .bss                mem.o
+    0x2403d3f4        -       0x00000100   Zero   RW         8455    .bss                scheduler.o
+    0x2403d4f4   COMPRESSED   0x00000004   PAD
+    0x2403d4f8        -       0x00001000   Zero   RW            1    STACK               startup_stm32h743xx.o
 
 
 ==============================================================================
@@ -6203,64 +6206,64 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       126         18          0          0       4096       3083   board.o
-       170         22          0          0          0       5261   bsp_driver_sd.o
-       204         26     175030          0          0       3215   cc936.o
-       106         12          0          4          0       1888   clock.o
-      2056        766        751          0          0      16901   cmd.o
-       346        138        100          0          0       6596   components.o
-       308         26          0          0          0        800   context_rvds.o
-      1372        734          0         16          0       6470   cpuport.o
-       148         24          0          0          0       3861   diskio.o
-        44          4          0          0          0        866   dma.o
-        32         10          0          5          0       1616   fatfs.o
-      9726        116         42          8         32      63203   ff.o
-        70          6          0          0         12       1639   ff_gen_drv.o
-       248         32          0          8         76       2330   fmc.o
-       218         50          0          0      65536       4797   fmc_tim_ad7606.o
-       660         38          0          0          0       1467   gpio.o
-      2516       1192        212          2       9936       7944   hdas_thread.o
-       308         76         22          0        408       5954   idle.o
-       900        226        355          0          0      24178   ipc.o
-        84         14          0         12          0       2302   irq.o
-      1502        220        290          8        256      12164   kservice.o
-       574        266          0          5        102    1342138   main.o
-      1598        684        348         32         40       7044   mem.o
-       832        178        168          0          0       8724   msh.o
-       800        280        128        100          0      10762   object.o
-       704        218         78         24        256       9190   scheduler.o
-       444         34         20         12          0       6785   sd_diskio.o
-       960        418          0          4        128       2858   sdmmc.o
-      2060        394         16     167940       1232       4416   sdmmc_fatfs.o
-      1320        170        100         24        257      12158   shell.o
-        36          8        664          0       4096        836   startup_stm32h743xx.o
-       208         34          0         12          0      22922   stm32h7xx_hal.o
-       198         14          0          0          0      39523   stm32h7xx_hal_cortex.o
-      6570        164          8          0          0      13610   stm32h7xx_hal_dma.o
-       526         48          0          0          0       5240   stm32h7xx_hal_gpio.o
-        28          6          0          0          0        906   stm32h7xx_hal_msp.o
-        80          4          0          0          0        793   stm32h7xx_hal_pwr_ex.o
-      2338        124          0          0          0       7260   stm32h7xx_hal_rcc.o
-      4440        178          0          0          0      10519   stm32h7xx_hal_rcc_ex.o
-      3542         68          0          0          0      20800   stm32h7xx_hal_sd.o
-       108          6          0          0          0       1348   stm32h7xx_hal_sram.o
-      2628        236          0          0          0      20270   stm32h7xx_hal_tim.o
-       166         26          0          0          0       3364   stm32h7xx_hal_tim_ex.o
-      3682        168         24          0          0      35745   stm32h7xx_hal_uart.o
-       288          6         16          0          0       5574   stm32h7xx_hal_uart_ex.o
-        76         22          0          0          0       4721   stm32h7xx_it.o
-       300         14          0          0          0       3908   stm32h7xx_ll_fmc.o
-      1818         68          0          0          0      25259   stm32h7xx_ll_sdmmc.o
-       228         40         16          8          0       1486   system_stm32h7xx.o
-      1414        400        251         12          0      16048   thread.o
-       564         56          0          0        196       4009   tim.o
-      1252        468         92         20          0      12299   timer.o
-       496         68          0          1        280       5908   usart.o
+       126         18          0          0       4096       3039   board.o
+       170         22          0          0          0       5197   bsp_driver_sd.o
+       204         26     175030          0          0       3179   cc936.o
+       106         12          0          4          0       1856   clock.o
+      2056        766        751          0          0      16785   cmd.o
+       346        138        100          0          0       6504   components.o
+       308         26          0          0          0        792   context_rvds.o
+      1372        734          0         16          0       6418   cpuport.o
+       148         24          0          0          0       3817   diskio.o
+        44          4          0          0          0        854   dma.o
+        32         10          0          5          0       1588   fatfs.o
+      9726        116         42          8         32      62759   ff.o
+        70          6          0          0         12       1615   ff_gen_drv.o
+       248         32          0          8         76       2294   fmc.o
+       218         50          0          0      65536       4729   fmc_tim_ad7606.o
+       660         38          0          0          0       1451   gpio.o
+      2516       1192        212          2       9936       7868   hdas_thread.o
+       308         76         22          0        408       5902   idle.o
+       900        226        355          0          0      23986   ipc.o
+        84         14          0         12          0       2262   irq.o
+      1502        220        290          8        256      12072   kservice.o
+       574        266          0          5        102    1341926   main.o
+      1598        684        348         32         40       6980   mem.o
+       832        178        168          0          0       8648   msh.o
+       800        280        128        100          0      10666   object.o
+       704        218         78         24        256       9110   scheduler.o
+       444         34         20         12          0       6705   sd_diskio.o
+       960        418          0          4        128       2822   sdmmc.o
+      2060        394         16     167940       1232       4380   sdmmc_fatfs.o
+      1320        170        100         24        257      12054   shell.o
+        36          8        664          0       4096        832   startup_stm32h743xx.o
+       208         34          0         12          0      22874   stm32h7xx_hal.o
+       198         14          0          0          0      39479   stm32h7xx_hal_cortex.o
+      6570        164          8          0          0      13522   stm32h7xx_hal_dma.o
+       526         48          0          0          0       5196   stm32h7xx_hal_gpio.o
+        28          6          0          0          0        894   stm32h7xx_hal_msp.o
+        80          4          0          0          0        785   stm32h7xx_hal_pwr_ex.o
+      2338        124          0          0          0       7212   stm32h7xx_hal_rcc.o
+      4440        178          0          0          0      10467   stm32h7xx_hal_rcc_ex.o
+      3542         68          0          0          0      20636   stm32h7xx_hal_sd.o
+       108          6          0          0          0       1336   stm32h7xx_hal_sram.o
+      2628        236          0          0          0      20082   stm32h7xx_hal_tim.o
+       166         26          0          0          0       3324   stm32h7xx_hal_tim_ex.o
+      3682        168         24          0          0      35601   stm32h7xx_hal_uart.o
+       288          6         16          0          0       5522   stm32h7xx_hal_uart_ex.o
+        76         22          0          0          0       4645   stm32h7xx_it.o
+       300         14          0          0          0       3884   stm32h7xx_ll_fmc.o
+      1818         68          0          0          0      25019   stm32h7xx_ll_sdmmc.o
+       228         40         16          8          0       1462   system_stm32h7xx.o
+      1414        400        251         12          0      15896   thread.o
+       564         72          0          0        196       3989   tim.o
+      1252        468         92         20          0      12183   timer.o
+       496         68          0          1        280       5832   usart.o
 
     ----------------------------------------------------------------------
-     61510       8618     178772     168268      86944    1842958   Object Totals
+     61510       8634     178772     168268      86952    1838930   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        88          0          9         11          5          0   (incl. Padding)
+        88          0          9         11         13          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -6321,14 +6324,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     65508       8730     178772     168272      86944    1802814   Grand Totals
-     65508       8730     178772       1380      86944    1802814   ELF Image Totals (compressed)
-     65508       8730     178772       1380          0          0   ROM Totals
+     65508       8746     178772     168272      86952    1798786   Grand Totals
+     65508       8746     178772       1380      86952    1798786   ELF Image Totals (compressed)
+     65508       8746     178772       1380          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)               244280 ( 238.55kB)
-    Total RW  Size (RW Data + ZI Data)            255216 ( 249.23kB)
+    Total RW  Size (RW Data + ZI Data)            255224 ( 249.24kB)
     Total ROM Size (Code + RO Data + RW Data)     245660 ( 239.90kB)
 
 ==============================================================================

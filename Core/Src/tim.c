@@ -23,7 +23,7 @@
 #include "FMC_TIM_AD7606.h"
 
 /* USER CODE BEGIN 0 */
-#define Time2_prescaler 10000000
+#define Time2_prescaler 20000000
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -32,18 +32,41 @@ DMA_HandleTypeDef hdma_tim2_up;
 extern int16_t g_sAd7606Buf[AD7606_BUFSIZE];
 
 /* TIM2 init function */
-void MX_TIM2_Init(uint32_t freq,uint8_t pulse)
+void MX_TIM2_Init(uint32_t freq,uint8_t pulse1)
 {
+	uint16_t usPeriod;
+	uint16_t usPrescaler;
+	uint32_t uiTIMxCLK;
+	uint32_t pulse;
+	
   TIM_SlaveConfigTypeDef sSlaveConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
-
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = HAL_RCC_GetSysClockFreq()/2/Time2_prescaler-1;
+	
+	
+	uiTIMxCLK=SystemCoreClock/2;
+	
+	usPrescaler=0;
+	usPeriod= uiTIMxCLK / freq - 1;
+	pulse = usPeriod - 199;
+	
+	
+	log_info("uiTIMxCLK:%d\r\n",uiTIMxCLK);
+	
+	htim2.Instance = TIM2;
+  htim2.Init.Prescaler = usPrescaler;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = Time2_prescaler/freq;
+  htim2.Init.Period = usPeriod;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+	
+
+//  htim2.Instance = TIM2;
+//  htim2.Init.Prescaler = HAL_RCC_GetSysClockFreq()/2/Time2_prescaler-1;
+//  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim2.Init.Period = Time2_prescaler/freq;
+//  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
@@ -65,7 +88,11 @@ void MX_TIM2_Init(uint32_t freq,uint8_t pulse)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = Time2_prescaler/freq*pulse/100;
+  //sConfigOC.Pulse = Time2_prescaler/freq*pulse/100;
+	sConfigOC.Pulse = pulse;
+	
+	//log_info("sConfigOC.Pulse:%d\r\n",sConfigOC.Pulse);
+	
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
 	sConfigOC.OCNPolarity  = TIM_OCNPOLARITY_HIGH;    /* 配置互补输出高电平有效 */
